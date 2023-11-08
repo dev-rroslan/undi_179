@@ -12,12 +12,15 @@ defmodule UndiWeb.WrongLive do
     <h2>
       <%= @message %>
     </h2>
-    <br/>
+    <br />
     <h2>
       <%= for n <- 1..10 do %>
-        <.link class="bg-blue-500 hover:bg-blue-700
+        <.link
+          class="bg-blue-500 hover:bg-blue-700
         text-white font-bold py-2 px-4 border border-blue-700 rounded m-1"
-        phx-click="guess" phx-value-number={n}>
+          phx-click="guess"
+          phx-value-number={n}
+        >
           <%= n %>
         </.link>
       <% end %>
@@ -30,19 +33,21 @@ defmodule UndiWeb.WrongLive do
   end
 
   def handle_event("guess", %{"number" => guess}, socket) do
-    {message, score, answer} = if String.to_integer(guess) == socket.assigns.answer do
-      {
-        "Your guess: #{guess}. You guess right! You won 5 points. New random number generated.",
-        socket.assigns.score + 5,
-        random_number()
-      }
-    else
-      {
-        "Your guess: #{guess}. You guessed wrong! Try again.",
-        socket.assigns.score - 1,
-        socket.assigns.answer
-      }
-    end
+    {message, score, answer} =
+      if String.to_integer(guess) == socket.assigns.answer do
+        {
+          "Your guess: #{guess}. You guess right! You won 5 points. New random number generated.",
+          socket.assigns.score + 5,
+          random_number()
+        }
+      else
+        {
+          "Your guess: #{guess}. You guessed wrong! Try again.",
+          socket.assigns.score - 1,
+          socket.assigns.answer
+        }
+      end
+
     {
       :noreply,
       assign(
@@ -50,6 +55,7 @@ defmodule UndiWeb.WrongLive do
         message: message,
         score: score,
         answer: answer
-      )}
+      )
+    }
   end
 end

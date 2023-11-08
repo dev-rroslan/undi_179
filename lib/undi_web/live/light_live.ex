@@ -5,11 +5,11 @@ defmodule UndiWeb.LightLive do
   @impl Phoenix.LiveView
   def mount(_params, _session, socket) do
     {:ok,
-      assign(socket,
-        brightness: 10
-        )
-    }
+     assign(socket,
+       brightness: 10
+     )}
   end
+
   @impl Phoenix.LiveView
   def render(assigns) do
     ~H"""
@@ -21,16 +21,16 @@ defmodule UndiWeb.LightLive do
         </span>
       </div>
       <button phx-click="off">
-      <img src={~p"/images/light-off.svg"} />
+        <img src={~p"/images/light-off.svg"} />
       </button>
       <button phx-click="down">
-      <img src={~p"/images/down.svg"} />
+        <img src={~p"/images/down.svg"} />
       </button>
       <button phx-click="up">
-      <img src={~p"/images/up.svg"} />
+        <img src={~p"/images/up.svg"} />
       </button>
       <button phx-click="on">
-      <img src={~p"/images/light-on.svg"} />
+        <img src={~p"/images/light-on.svg"} />
       </button>
     </div>
     """

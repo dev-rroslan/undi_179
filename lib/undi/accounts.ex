@@ -6,7 +6,7 @@ defmodule Undi.Accounts do
   import Ecto.Query, warn: false
   alias Undi.Repo
 
-  alias Undi.Accounts.{User, UserNotifier,  UserToken}
+  alias Undi.Accounts.{User, UserNotifier, UserToken}
 
   ## Database getters
 

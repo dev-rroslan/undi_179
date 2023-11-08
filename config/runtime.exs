@@ -54,11 +54,11 @@ if config_env() == :prod do
   config :undi, :dns_cluster_query, System.get_env("DNS_CLUSTER_QUERY")
 
   config :undi, UndiWeb.Endpoint,
-  url: [host: "undi.online", port: 443, scheme: "https"],
-  check_origin: [
-    "https://undi.online",
-    "https://undi.fly.dev",
-  ],
+    url: [host: "undi.online", port: 443, scheme: "https"],
+    check_origin: [
+      "https://undi.online",
+      "https://undi.fly.dev"
+    ],
     http: [
       # Enable IPv6 and bind on all interfaces.
       # Set it to  {0, 0, 0, 0, 0, 0, 0, 1} for local network only access.
@@ -115,6 +115,7 @@ if config_env() == :prod do
   config :undi, Undi.Mailer,
     adapter: Swoosh.Adapters.Brevo,
     api_key: System.get_env("undi_brevo_api_key")
+
   # For this example you need include a HTTP client required by Swoosh API client.
   # Swoosh supports Hackney and Finch out of the box:
   #
