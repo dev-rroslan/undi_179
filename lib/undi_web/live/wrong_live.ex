@@ -25,14 +25,12 @@ defmodule UndiWeb.WrongLive do
     """
   end
 
-  defp random_number() do
+  defp random_number do
     Enum.random(1..10)
   end
 
   def handle_event("guess", %{"number" => guess}, socket) do
-    {message, score, answer} =
-    
-    if String.to_integer(guess) == socket.assigns.answer do
+    {message, score, answer} = if String.to_integer(guess) == socket.assigns.answer do
       {
         "Your guess: #{guess}. You guess right! You won 5 points. New random number generated.",
         socket.assigns.score + 5,
@@ -54,5 +52,4 @@ defmodule UndiWeb.WrongLive do
         answer: answer
       )}
   end
-      
 end

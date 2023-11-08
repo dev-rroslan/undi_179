@@ -1,6 +1,6 @@
 defmodule UndiWeb.LightLive do
+  @moduledoc false
   use UndiWeb, :live_view
-
 
   @impl Phoenix.LiveView
   def mount(_params, _session, socket) do
@@ -46,26 +46,13 @@ defmodule UndiWeb.LightLive do
     {:noreply, update(socket, :brightness, &max(&1 - 10, 0))}
   end
 
-  @impl Phoenix.LiveView      
+  @impl Phoenix.LiveView
   def handle_event("off", _, socket) do
     {:noreply, assign(socket, :brightness, 0)}
   end
 
-  @impl Phoenix.LiveView  
+  @impl Phoenix.LiveView
   def handle_event("on", _, socket) do
     {:noreply, assign(socket, :brightness, 100)}
   end
-     
 end
-    
-    
-    
-     
-
-      
-    
-     
-       
-     
-  
-  

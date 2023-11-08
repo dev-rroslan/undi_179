@@ -1,4 +1,5 @@
 defmodule UndiWeb.UserAuth do
+  @moduledoc false
   use UndiWeb, :verified_routes
 
   import Plug.Conn

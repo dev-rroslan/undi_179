@@ -1,4 +1,5 @@
 defmodule Undi.Accounts.UserNotifier do
+  @moduledoc false
   import Swoosh.Email
 
   alias Undi.Mailer
