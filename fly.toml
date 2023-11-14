@@ -16,6 +16,8 @@ swap_size_mb = 512
 [env]
   PHX_HOST = "undi.fly.dev"
   PORT = "8080"
+  DNS_CLUSTER_QUERY = "undi.internal"
+  RELEASE_COOKIE = "q9MxWqINsox_vlQpO9lxcOHK_8SYeJLnXDWxqw7huaciVUeEe-foMA=="
 
 [http_service]
   internal_port = 8080
